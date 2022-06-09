@@ -23,7 +23,7 @@ namespace DotNetTests.Application.Queries.GetUserReadBooks
 
         public async Task<IEnumerable<BookDto>> Handle(GetUserReadBooksQuery request, CancellationToken cancellationToken)
         {
-            var result = await bookRepository.GetUserReadBookAsync(request.Id);
+            var result = await bookRepository.GetUserReadBookAsync(request.Id, request.SearchString);
             return mapper.Map<IEnumerable<BookDto>>(result);
         }
     }

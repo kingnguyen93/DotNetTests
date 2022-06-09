@@ -9,6 +9,6 @@ namespace DotNetTests.Infrastructure.Repositories
 {
     public interface IBookRepository : IGenericRepository<Book, Guid>
     {
-        ValueTask<IReadOnlyList<Book>> GetUserReadBookAsync(Guid userId);
+        ValueTask<IReadOnlyList<Book>> GetUserReadBookAsync(Guid userId, string searchString);
     }
 }

@@ -14,10 +14,7 @@ namespace DotNetTests.Application.Queries.GetUserReadBooks
     {
         public Guid Id { get; set; }
 
-        public GetUserReadBooksQuery(Guid id)
-        {
-            Id = id;
-        }
+        public string SearchString { get; set; }
     }
 
     public class BookDto : IMapFrom<Book>

@@ -1,4 +1,5 @@
 ﻿using DotNetTests.Domain.Entities;
+using DotNetTests.EntityFrameworkCore.Extensions;
 using DotNetTests.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,9 +16,12 @@ namespace DotNetTests.EntityFrameworkCore.Repositories
         {
         }
 
-        public async ValueTask<IReadOnlyList<Book>> GetUserReadBookAsync(Guid userId)
+        public async ValueTask<IReadOnlyList<Book>> GetUserReadBookAsync(Guid userId, string searchString)
         {
-            return await DbSet.Where(b => b.Users.Select(u => u.Id).Contains(userId)).ToListAsync();
+            return await DbSet
+                .Where(b => b.Users.Select(u => u.Id).Contains(userId))
+                .WhereIf(!string.IsNullOrWhiteSpace(searchString), b => b.Name.ToUpper().Contains(searchString.ToUpper()))
+                .ToListAsync();
         }
     }
 }

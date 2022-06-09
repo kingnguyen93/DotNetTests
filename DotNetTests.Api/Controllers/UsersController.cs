@@ -28,9 +28,10 @@ namespace DotNetTests.Api.Controllers
         }
 
         [HttpGet("{id}/books/read")]
-        public async Task<IActionResult> GetReadBooks(Guid id)
+        public async Task<IActionResult> GetReadBooks(Guid id, [FromQuery] GetUserReadBooksQuery query)
         {
-            return Ok(await mediator.Send(new GetUserReadBooksQuery(id)));
+            query.Id = id;
+            return Ok(await mediator.Send(query));
         }
     }
 }
