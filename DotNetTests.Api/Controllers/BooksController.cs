@@ -1,7 +1,6 @@
 ﻿using DotNetTests.Application.Commands.CreateBook;
 using DotNetTests.Application.Commands.DeleteBook;
 using DotNetTests.Application.Commands.UpdateBook;
-using DotNetTests.Application.Commands.UserRead;
 using DotNetTests.Application.Queries.GetBook;
 using DotNetTests.Application.Queries.GetBooks;
 using MediatR;
@@ -47,14 +46,6 @@ namespace DotNetTests.Api.Controllers
         public async Task<IActionResult> Put(Guid id, [FromBody] UpdateBookCommand command)
         {
             command.Id = id;
-            var result = await mediator.Send(command);
-            return result ? Ok("Success") : NotFound("Not Found");
-        }
-
-        [HttpPut("{id}/read")]
-        public async Task<IActionResult> Read(Guid id, [FromBody] UserReadCommand command)
-        {
-            command.BookId = id;
             var result = await mediator.Send(command);
             return result ? Ok("Success") : NotFound("Not Found");
         }

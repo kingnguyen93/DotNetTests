@@ -8,20 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetTests.Application.Commands.UserRead
+namespace DotNetTests.Application.Commands.CreateUserBook
 {
-    public class UserReadCommandHandler : IRequestHandler<UserReadCommand, bool>
+    public class CreateUserBookCommandHandler : IRequestHandler<CreateUserBookCommand, bool>
     {
         private readonly IGenericRepository<Book, Guid> bookRepository;
         private readonly IGenericRepository<User, Guid> userRepository;
 
-        public UserReadCommandHandler(IGenericRepository<Book, Guid> bookRepository, IGenericRepository<User, Guid> userRepository)
+        public CreateUserBookCommandHandler(IGenericRepository<Book, Guid> bookRepository, IGenericRepository<User, Guid> userRepository)
         {
             this.bookRepository = bookRepository ?? throw new ArgumentNullException(nameof(bookRepository));
             this.userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
         }
 
-        public async Task<bool> Handle(UserReadCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CreateUserBookCommand request, CancellationToken cancellationToken)
         {
             var book = await bookRepository.FirstOrDefaultAsync(new GetBookSpecification(request.BookId));
             if (book == null)

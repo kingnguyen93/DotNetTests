@@ -16,7 +16,7 @@ namespace DotNetTests.EntityFrameworkCore.Repositories
         {
         }
 
-        public async ValueTask<IReadOnlyList<Book>> GetUserReadBookAsync(Guid userId, string searchString)
+        public async ValueTask<IReadOnlyList<Book>> GetUserBooksAsync(Guid userId, string searchString)
         {
             return await DbSet
                 .Where(b => b.Users.Select(u => u.Id).Contains(userId))

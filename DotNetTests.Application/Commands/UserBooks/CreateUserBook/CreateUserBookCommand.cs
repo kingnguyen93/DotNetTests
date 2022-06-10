@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetTests.Application.Commands.UserRead
+namespace DotNetTests.Application.Commands.CreateUserBook
 {
-    public class UserReadCommand : IRequest<bool>
+    public class CreateUserBookCommand : IRequest<bool>
     {
         public Guid BookId { get; set; }
 

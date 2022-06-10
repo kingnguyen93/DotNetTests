@@ -1,5 +1,4 @@
 ﻿using DotNetTests.Application.Commands.CreateUser;
-using DotNetTests.Application.Queries.GetUserReadBooks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -25,13 +24,6 @@ namespace DotNetTests.Api.Controllers
         public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
         {
             return Ok(await mediator.Send(command));
-        }
-
-        [HttpGet("{id}/books/read")]
-        public async Task<IActionResult> GetReadBooks(Guid id, [FromQuery] GetUserReadBooksQuery query)
-        {
-            query.Id = id;
-            return Ok(await mediator.Send(query));
         }
     }
 }

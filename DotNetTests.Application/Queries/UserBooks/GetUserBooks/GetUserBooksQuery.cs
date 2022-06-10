@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNetTests.Application.Queries.GetUserReadBooks
+namespace DotNetTests.Application.Queries.GetUserBooks
 {
-    public class GetUserReadBooksQuery : IRequest<IEnumerable<BookDto>>
+    public class GetUserBooksQuery : IRequest<IEnumerable<BookDto>>
     {
-        public Guid Id { get; set; }
+        public Guid UserId { get; set; }
 
         public string SearchString { get; set; }
     }
