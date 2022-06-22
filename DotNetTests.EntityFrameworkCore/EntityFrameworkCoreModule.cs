@@ -13,7 +13,7 @@ namespace DotNetTests.EntityFrameworkCore
         public static IServiceCollection AddEntityFrameworkCore(this IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<AppContext>(opt => opt.UseInMemoryDatabase("DotNetTests"));
+            services.AddDbContext<ApplicationContext>(opt => opt.UseInMemoryDatabase("DotNetTests"));
             return services;
         }
     }

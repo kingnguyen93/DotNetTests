@@ -19,7 +19,7 @@ namespace DotNetTests.EntityFrameworkCore.Repositories
     {
         private readonly IMapper _mapper;
 
-        public MapperGenericRepository(AppContext context, IMapper mapper) : base(context)
+        public MapperGenericRepository(ApplicationContext context, IMapper mapper) : base(context)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }

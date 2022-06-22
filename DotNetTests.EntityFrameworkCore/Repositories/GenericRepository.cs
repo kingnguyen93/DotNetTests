@@ -17,12 +17,12 @@ namespace DotNetTests.EntityFrameworkCore.Repositories
     {
         #region Repository setting
 
-        protected readonly AppContext _context;
+        protected readonly ApplicationContext _context;
         protected readonly DbSet<TEntity> DbSet;
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public GenericRepository(AppContext context)
+        public GenericRepository(ApplicationContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             DbSet = _context.Set<TEntity>();

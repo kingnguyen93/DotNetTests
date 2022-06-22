@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DotNetTests.EntityFrameworkCore
 {
-    public class AppContext : DbContext, IUnitOfWork
+    public class ApplicationContext : DbContext, IUnitOfWork
     {
-        public AppContext(DbContextOptions<AppContext> options) : base(options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }
 

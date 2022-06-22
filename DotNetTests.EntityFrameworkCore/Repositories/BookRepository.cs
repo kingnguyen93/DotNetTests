@@ -12,7 +12,7 @@ namespace DotNetTests.EntityFrameworkCore.Repositories
 {
     public class BookRepository : GenericRepository<Book, Guid>, IBookRepository
     {
-        public BookRepository(AppContext context) : base(context)
+        public BookRepository(ApplicationContext context) : base(context)
         {
         }
 
